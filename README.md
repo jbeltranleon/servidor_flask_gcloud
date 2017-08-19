@@ -23,3 +23,9 @@ Your browser has been opened to visit:
 ´
 $gcloud app deploy --project [id-project]
 ´
+You can stream logs from the command line by running:
+  $ gcloud app logs tail -s default
+
+To view your application in the web browser run:
+  $ gcloud app browse
+
