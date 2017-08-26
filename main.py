@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, render_template, request
+from contact_model import Contact
 
 app = Flask(__name__)
 
@@ -13,10 +14,11 @@ def contact_book():
 def add_contact():
 
     if request.form:
-        print(request.form.get('name'))
-        print(request.form.get('phone'))
-        print(request.form.get('email'))
-    
+        contact = Contact(name=request.form.get('name'),
+                          phone=request.form.get('phone'),
+                          email=request.form.get('email'))
+        contact.put()
+
     return render_template('add_contact.html')
 
 if __name__ == '__main__':
