@@ -8,7 +8,8 @@ app = Flask(__name__)
 
 @app.route(r'/', methods=['GET'])
 def contact_book():
-    return render_template('contact_book.html')
+    contacts = Contact.query().fetch()
+    return render_template('contact_book.html', contacts=contacts)
 
 @app.route(r'/add', methods=['GET', 'POST'])
 def add_contact():
