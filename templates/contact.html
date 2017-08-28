@@ -10,7 +10,11 @@
         <button type="submit">Destruir Contacto</button>
     </form>
     <hr>
-    
+    <form action="/find" method="post">
+        <input type="hidden" name="uid" value="{{ contact.key.id() }}">
+        <button type="submit">Editar</button>
+    </form>
+    <hr>
     <a href="/add">Agregar Contacto</a> | 
     <a href="/">Home</a>
 {% endblock %}

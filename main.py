@@ -42,6 +42,27 @@ def delete_contact():
 
     return redirect('/contacts/{}'.format(contact.key.id()))
     
+@app.route(r'/find', methods=['POST'])
+def find_contact():
+    contact = Contact.get_by_id(int(request.form.get('uid')))
+    return render_template('update_contact.html', contact=contact)
+
+@app.route(r'/update', methods=['GET', 'POST'])
+def update_contact():
+    contact = Contact.get_by_id(int(request.form.get('uid')))
+
+    if request.form:
+        contact.name = request.form.get('name')
+        contact.phone = request.form.get('phone')
+        contact.email = request.form.get('email')
+        contact.put()
+
+        flash('¡Datos de agenda actualizados!')
+    return redirect('/', code=301)
+
+
+
+    
 
 if __name__ == '__main__':
     app.run()
