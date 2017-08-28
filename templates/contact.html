@@ -1,0 +1,9 @@
+{% extends 'index.html' %}
+{% block body %}
+    <h2>{{ contact.name }}</h2>
+    <p><strong>Telefono: </strong>{{ contact.phone }}</p>
+    <p><strong>Email: </strong>{{ contact.email }}</p>
+    
+    <a href="/add">Agregar Contacto</a>
+    <a href="/">Home</a>
+{% endblock %}
