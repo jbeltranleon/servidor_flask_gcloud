@@ -30,6 +30,7 @@ def contact_details(uid):
     contact = Contact.get_by_id(int(uid))
 
     if not contact:
+        flash('¡Contacto destruido!')
         return redirect('/', code=301)
         
     return render_template('contact.html', contact=contact)
