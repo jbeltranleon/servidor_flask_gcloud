@@ -6,7 +6,7 @@
             <li>
                 {{ contact.name }} <a href="/contacts/{{contact.key.id()}}">Ver Más</a>
             </li>
-        {% endblock %}
+        {% endfor %}
     </ul>
     <a href="/add">Agregar Contacto</a>
 {% endblock %}
